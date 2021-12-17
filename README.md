@@ -1,2 +1,2 @@
 # azure-aks-template
-provides a fully functional AKS using ARM
+provides a fully functional AKS using ARM Template
