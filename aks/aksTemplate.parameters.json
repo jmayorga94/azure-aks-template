@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "clusterName": {
+            "value": "aks-dev-east-01"
+        },
+        "vnetName": {
+            "value": "vnet-dev-eastus-001"
+        },
+        "subnetName": {
+            "value": "snet-dev-001"
+        },
+        "resourceGroupVnet": {
+            "value": "rg-dev"
+        },
+        "dnsPrefix": {
+            "value":"-dns"
+    },
+    "agentVMSize": {
+        "value": "Standard_DS3_v2"
+    },
+    "maxPods": {
+        "value": 60
+    }
+}
+}

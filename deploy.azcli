@@ -1,0 +1,23 @@
+EnvironmentValue="dev"
+timestamp=`date "+%Y%m%d-%H%M%S"`
+location="eastus"
+resourceGroup="rg-dev"
+
+#Important 
+# az login
+
+#View your subscriptions
+#az account list --output table
+
+#Set subscription where do you want to apply the changes
+#az account set --subscription $subscriptionNameOrId
+
+#Create Resource group
+
+az group create --name $resourceGroup --location  $location -o table
+#Vnet subnet creation 
+az deployment group create -g $resourceGroup --template-file vnet/vnetTemplate.json --parameters  vnet/vnetTemplate.parameters.json -n "Vnet-$timestamp"
+
+az deployment group create -g $resourceGroup --template-file acr/acrTemplate.json --parameters  acr/acrTemplate.parameters.json -n "ACR-$timestamp"
+
+az deployment group create -g $resourceGroup --template-file aks/aksTemplate.json --parameters  aks/aksTemplate.parameters.json -n "AKS-$timestamp"
