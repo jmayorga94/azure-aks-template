@@ -18,6 +18,11 @@ az group create --name $resourceGroup --location  $location -o table
 #Vnet subnet creation 
 az deployment group create -g $resourceGroup --template-file vnet/vnetTemplate.json --parameters  vnet/vnetTemplate.parameters.json -n "Vnet-$timestamp"
 
+#Azure container registry subnet creation
 az deployment group create -g $resourceGroup --template-file acr/acrTemplate.json --parameters  acr/acrTemplate.parameters.json -n "ACR-$timestamp"
 
+#Azure Kubernetes Service creation
 az deployment group create -g $resourceGroup --template-file aks/aksTemplate.json --parameters  aks/aksTemplate.parameters.json -n "AKS-$timestamp"
+
+#Enable  AGIC
+
